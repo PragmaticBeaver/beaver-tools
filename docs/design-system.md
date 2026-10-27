@@ -4,7 +4,7 @@ Workshop is beaver-tools' visual language: warm paper surfaces, dark ink, a sing
 
 ## Tokens
 
-Defined in `src/styles/global.css`:
+Defined in `src/styles/site.css`, loaded by the global Tailwind stylesheet `src/styles/global.css`:
 
 - `--paper`: warm off-white page background
 - `--surface`: raised card and panel background
@@ -17,6 +17,8 @@ Defined in `src/styles/global.css`:
 - `--danger`: destructive actions only
 
 Use tokens rather than one-off hex values. Add a token only when a new semantic role is genuinely needed.
+
+Tailwind utilities may be used alongside existing classes. Existing styles are in the `components` layer; utilities take precedence. Preflight is omitted to preserve current base styling. Use `site-container` for the existing width wrapper; `container` is reserved for Tailwind's utility.
 
 ## Layout
 

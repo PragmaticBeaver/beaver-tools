@@ -14,7 +14,7 @@ Use a single Astro application with static output.
 - Interactive tools are React islands mounted only where needed.
 - A tool gets a stable route under `src/pages/` and an entry in `src/lib/tools.ts`.
 - Domain logic lives in `src/lib/<tool>/` and stays framework-independent.
-- Styling uses shared CSS tokens instead of a utility framework for now.
+- Styling uses shared CSS tokens. Tailwind CSS 4 was subsequently added at the user's request via `@tailwindcss/vite`; existing styles remain in the components layer, with Preflight omitted to avoid changing base styling.
 
 ## Consequences
 

@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = 'Kleine lokale Werkzeuge für den Alltag. Ohne Konto, ohne Tracking.',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title} · beaver-tools</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <a class="skip-link" href="#main">Zum Inhalt</a>
+      <header class="site-header">
+        <div class="container site-header__inner">
+          <a class="brand" href="/" aria-label="beaver-tools Startseite">
+            <span class="brand__name">beaver<span class="brand__dot">.</span>tools</span>
+          </a>
+          <nav class="site-nav" aria-label="Hauptnavigation">
+            <a href="/">Werkzeuge</a>
+            <a href="/lebenslauf">Lebenslauf</a>
+          </nav>
+        </div>
+      </header>
+      <main id="main" class="site-main container"><slot /></main>
+      <footer class="site-footer">
+        <div class="container site-footer__inner">
+          <p>Gutes Werkzeug. Keine Umwege.</p>
+          <p>Ohne Konto · Ohne Tracking · Lokal im Browser</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

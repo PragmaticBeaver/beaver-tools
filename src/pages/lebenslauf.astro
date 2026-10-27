@@ -1,0 +1,19 @@
+---
+import CvEditor from '../components/cv/CvEditor';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { tools } from '../lib/tools';
+
+const tool = tools.find((tool) => tool.slug === 'lebenslauf');
+if (!tool) throw new Error('Lebenslauf fehlt im Werkzeugverzeichnis.');
+---
+<SiteLayout title={tool.name} description={tool.description}>
+  <div class="tool-intro">
+    <p class="eyebrow">Werkzeug {tool.number}</p>
+    <h1>{tool.name}</h1>
+    <p>Schreiben, lokal speichern, als A4-PDF drucken. Alle Felder sind optional.</p>
+    <p class="privacy-note">Deine Eingaben und dein Foto bleiben in diesem Browser. Exportiere regelmäßig eine JSON-Sicherung; Browserdaten können gelöscht werden.</p>
+  </div>
+  <CvEditor client:only="react">
+    <p slot="fallback">Der Editor benötigt JavaScript. Bitte aktiviere es, um deinen Lebenslauf lokal zu bearbeiten.</p>
+  </CvEditor>
+</SiteLayout>

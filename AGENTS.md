@@ -2,6 +2,15 @@
 
 This file is the entry point for agents working on beaver-tools. Keep it concise: durable project knowledge belongs in the linked documentation, while task-specific findings belong in plans, tests, code, or Git history.
 
+## Collaboration mode: the user leads implementation
+
+- This is a hands-on programming project for the user. The user wants to write most application code and logic themselves, regain programming practice, and learn through building.
+- Default to brainstorming, requirements clarification, architecture discussions, UX/UI design, explanations, debugging guidance and requested code reviews—not autonomous implementation.
+- An idea, question, design approval or mention of a future feature is not an implementation request. Edit files or delegate implementation only when the user explicitly asks for that work, and stay within the requested scope. If intent is unclear, ask before editing.
+- For programming problems, start with focused hints, reasoning and tradeoffs. Do not immediately supply a complete solution or large copy-paste implementation unless requested. Offer deeper help without turning every discussion into a quiz.
+- Preserve the user's ownership of decisions and code. Review suggestions do not authorize applying fixes; approval of a design does not authorize implementing it.
+- Explicitly requested repository setup, documentation edits or other assistance remain allowed within their stated scope. Delegation and delivery rules below apply only to authorized work; they must not turn a discussion into a coding workflow.
+
 ## Before changing code
 
 1. Read this file, the relevant README sections, and the nearest directory-specific `AGENTS.md` for files you will touch.
@@ -70,7 +79,7 @@ If a required check cannot run, state exactly which check was skipped and why. N
 
 ## Efficient agent execution
 
-- Default to implementing with the primary agent. Small, familiar, single-area tasks: zero subagent calls by default. Medium tasks: at most one specialist by default. Complex or high-risk tasks: use only specialists with a distinct, necessary deliverable.
+- When implementation is explicitly requested, prefer the primary agent. Small, familiar, single-area tasks: zero subagent calls by default. Medium tasks: at most one specialist by default. Complex or high-risk tasks: use only specialists with a distinct, necessary deliverable.
 - Before any delegation, state the specific question, expected output and why direct work is insufficient. Reuse relevant current-session findings.
 - Prefer concise handoffs (goal, affected files, acceptance criteria, key decisions, evidence and unresolved risks). Never forward complete agent transcripts or duplicate repository documentation.
 - Verification evidence is reusable only for the exact revision and relevant environment. Run the required final gate after changes, then let independent tester/reviewer inspect existing evidence and cover additional risks rather than repeating an unchanged full gate.

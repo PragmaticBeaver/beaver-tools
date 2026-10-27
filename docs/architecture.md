@@ -11,7 +11,7 @@ The current scope is the repository foundation and a simple static landing page.
 - Astro 7 (static output)
 - React 19 islands for interactive tools
 - TypeScript (strict)
-- Plain CSS with shared design tokens
+- Tailwind CSS 4 via its Vite plugin, alongside shared CSS tokens and existing component styles
 - Playwright for browser regression tests
 - Node's built-in test runner for pure logic
 

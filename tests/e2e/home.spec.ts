@@ -33,6 +33,12 @@ for (const width of [390, 1440]) {
         0,
       );
       await expect(page.getByRole('textbox')).toHaveCount(0);
+      // `isolate` comes from Tailwind, not the site's legacy stylesheet.
+      await expect(page.locator('.site-shell')).toHaveCSS(
+        'isolation',
+        'isolate',
+      );
+      await expect(page.getByRole('main')).toHaveCSS('max-width', '1120px');
       await expect(page.locator('script[src]')).toHaveCount(0);
       await page.keyboard.press('Tab');
       await expect(

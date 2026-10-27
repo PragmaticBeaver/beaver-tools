@@ -20,10 +20,10 @@ const {
     <title>{title} · beaver-tools</title>
   </head>
   <body>
-    <div class="site-shell">
+    <div class="site-shell isolate">
       <a class="skip-link" href="#main">Zum Inhalt</a>
       <header class="site-header">
-        <div class="container site-header__inner">
+        <div class="site-container site-header__inner">
           <a class="brand" href="/" aria-label="beaver-tools Startseite">
             <span class="brand__name">beaver<span class="brand__dot">.</span>tools</span>
           </a>
@@ -32,9 +32,9 @@ const {
           </nav>
         </div>
       </header>
-      <main id="main" class="site-main container"><slot /></main>
+      <main id="main" class="site-main site-container"><slot /></main>
       <footer class="site-footer">
-        <div class="container site-footer__inner">
+        <div class="site-container site-footer__inner">
           <p>Gutes Werkzeug. Keine Umwege.</p>
           <p>Ohne Konto · Ohne Tracking · Lokal im Browser</p>
         </div>

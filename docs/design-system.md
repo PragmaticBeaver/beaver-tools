@@ -52,11 +52,9 @@ Use tokens rather than one-off hex values. Add a token only when a new semantic 
 ## Print
 
 - Use real, selectable text, not images of text.
-- A4 page, 14mm margins, black text on white, no shadows or UI chrome.
-- Hide navigation, editors and toolbars in `@media print`.
-- Avoid page breaks inside entries; keep headings with their content.
+- Introduce tool-specific page sizes and print layouts only when a printable tool is explicitly requested.
 - Links may be printed as text; do not rely on hover.
 
 ## Voice
 
-German UI, concise and friendly. Prefer plain words over jargon ("Lebenslauf", not "Résumé-Asset"). Empty states explain the next action.
+German UI, concise and friendly. Prefer plain words over jargon. Empty states explain the current state without promising unimplemented features.

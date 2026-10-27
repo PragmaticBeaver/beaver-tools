@@ -1,43 +1,15 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import { tools } from '../lib/tools';
 ---
-<SiteLayout title="Werkzeuge für den Alltag">
-  <section class="hero" aria-labelledby="hero-title">
-    <div>
-      <p class="eyebrow">Die kleine Werkzeugbank</p>
-      <h1 class="display" id="hero-title">Weniger Aufwand.<br />Mehr erledigt.</h1>
-      <p class="lede">Kleine, verständliche Werkzeuge für den Alltag. Direkt im Browser, ohne Anmeldung.</p>
-    </div>
-    <aside class="hero__note">
-      <strong>Einfach anfangen</strong>
-      Deine Daten bleiben bei dir. Kein Konto, kein Tracking und keine versteckten Uploads.
-    </aside>
+<SiteLayout title="Kleine Werkzeuge für den Alltag">
+  <section class="intro" aria-labelledby="intro-title">
+    <p class="eyebrow">Die kleine Werkzeugbank</p>
+    <h1 id="intro-title">beaver-tools</h1>
+    <p class="lede">Ein Platz für kleine, nützliche Werkzeuge, die den Alltag einfacher machen.</p>
   </section>
-  <section aria-labelledby="tools-title">
-    <div class="section-heading">
-      <h2 id="tools-title">Auf der Werkbank</h2>
-      <span>{tools.length} Werkzeug{tools.length === 1 ? '' : 'e'}</span>
-    </div>
-    <div class="tool-grid">
-      {tools.map(tool => (
-        <a class="tool-card" href={tool.href}>
-          <div class="tool-card__top">
-            <span class="tool-card__number">{tool.number}</span>
-            <span class="badge">{tool.status === 'available' ? 'Bereit' : 'Geplant'}</span>
-          </div>
-          <h3>{tool.name}</h3>
-          <p>{tool.description}</p>
-          <span class="tool-card__cta">Werkzeug öffnen →</span>
-        </a>
-      ))}
-    </div>
-  </section>
-  <section class="privacy-strip" aria-labelledby="privacy-title">
-    <span class="privacy-strip__mark" aria-hidden="true">✓</span>
-    <div>
-      <h2 id="privacy-title">Deine Daten sind keine Handelsware.</h2>
-      <p>Alle Eingaben werden lokal verarbeitet. Du entscheidest, wann du eine Datei exportierst oder deinen Lebenslauf druckst.</p>
-    </div>
+  <section id="werkzeuge" class="panel" aria-labelledby="tools-title">
+    <h2 id="tools-title">Hier entsteht die Werkzeug-Sammlung.</h2>
+    <p>Das Grundgerüst steht. Die ersten Werkzeuge folgen Schritt für Schritt.</p>
+    <p class="note">Noch sind keine Werkzeuge verfügbar.</p>
   </section>
 </SiteLayout>

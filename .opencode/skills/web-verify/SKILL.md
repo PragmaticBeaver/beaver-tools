@@ -40,8 +40,8 @@ Prefer extending the owning spec over writing an ad-hoc runner. During diagnosis
 
 ```sh
 npm run build
-npx playwright test tests/e2e/cv.spec.ts
-npx playwright test -g "persists"
+npx playwright test tests/e2e/home.spec.ts
+npx playwright test -g "landing"
 ```
 
 A focused pass never replaces the full `npm run verify:web` gate.

@@ -4,7 +4,7 @@
 
 beaver-tools is a personal collection of small, focused web tools for everyday use. The landing page is a workshop shelf: each tool solves one concrete task without accounts, tracking, or unnecessary ceremony.
 
-The first tool is a German CV generator. It stores the CV locally in the browser, supports JSON import/export, and produces a print-ready A4 document through the browser's print dialog.
+The current scope is the repository foundation and a simple static landing page. No tool is implemented yet. Concrete tools require a separate request; do not implement a product feature merely because it was mentioned as future context.
 
 ## Stack
 
@@ -26,7 +26,7 @@ The first tool is a German CV generator. It stores the CV locally in the browser
 
 ## Data and privacy
 
-- Tools are local-first. The CV generator keeps data in `localStorage` and never sends it over the network.
+- Future tools should be local-first. The current landing page collects no input and uses no browser storage.
 - Imported JSON is untrusted input: validate, normalize and bound it before rendering or persisting.
 - No analytics, third-party fonts, tracking pixels, or remote persistence.
 - A tool that genuinely needs a backend requires a documented decision in `docs/decisions/`, a privacy note in the UI, and an explicit data-flow boundary.
@@ -41,7 +41,6 @@ The first tool is a German CV generator. It stores the CV locally in the browser
 
 Evaluate only when a concrete tool requires them:
 
-- a second persistence model (IndexedDB) if local data grows beyond `localStorage` limits;
-- sharing/export formats beyond JSON and print;
+- persistence and import/export formats, only when a concrete tool requires them;
 - deployment target and custom domain;
 - internationalization if tools need more than German UI.

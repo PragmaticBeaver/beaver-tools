@@ -58,10 +58,10 @@ If blocked, report the exact command, failure and blocker. Never describe an unr
 
 `npm test` runs `tests/*.test.mjs` with Node's built-in test runner and type stripping. Unit tests may import TypeScript modules directly. They must not require a browser, network, or a populated `localStorage`.
 
-Cover at least:
+The current unit suite validates the harness and worktree guard. When tools are added, cover relevant:
 
 - data normalization and untrusted import handling;
-- date/contact/link formatting;
+- pure domain transformations;
 - storage versioning and corrupted-data recovery.
 
 `tests/harness.test.mjs` also parses the actual agent/skill YAML frontmatter and checks role permission boundaries. Markdown formatting stays manual because the current Biome formatter does not preserve that frontmatter safely.

@@ -10,18 +10,8 @@ export interface Tool {
   number: string;
 }
 
-export const tools = [
-  {
-    slug: 'lebenslauf',
-    name: 'Lebenslauf-Generator',
-    tagline: 'Ordentlich, lokal, druckfertig.',
-    description:
-      'Strukturierten Lebenslauf schreiben, im Browser speichern und als saubere A4-Seite drucken. Ohne Konto, ohne Upload.',
-    href: '/lebenslauf',
-    status: 'available',
-    number: '01',
-  },
-] as const satisfies readonly Tool[];
+// Register tools only when their implementation is explicitly requested.
+export const tools: readonly Tool[] = [];
 
 export const availableTools = tools.filter(
   (tool) => tool.status === 'available',

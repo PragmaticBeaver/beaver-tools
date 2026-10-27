@@ -1,27 +1,22 @@
 # beaver-tools
 
-A growing collection of small, local-first web tools for everyday use.
+A future collection of small, local-first web tools for everyday use.
 
-The first tool is a **German CV generator**: edit a structured CV, keep it in your browser, export/import JSON, and print a clean A4 PDF through the browser. Personal data never leaves the device.
+## Current scope
 
-## Tools
-
-| Tool | Route | Status |
-| --- | --- | --- |
-| Lebenslauf-Generator | `/lebenslauf` | available |
+Repository foundation and a simple German landing page only. No individual tool, editor, persistence or export functionality is implemented yet. Product features require a separate request.
 
 ## Stack
 
-- [Astro](https://astro.build/) static output
-- React islands for interactive tools
-- TypeScript (strict)
-- Plain CSS with shared Workshop design tokens
-- Playwright for browser regression tests
-- Node's built-in test runner for pure logic
+- Astro static output
+- React integration ready for future interactive islands (unused by the current static pages)
+- Strict TypeScript and shared CSS tokens
+- Biome, Node unit tests and Playwright browser tests
+- GitHub Actions for core and browser verification
 
 ## Development
 
-Requirements: Node 24.21.0 (see `.nvmrc`) and npm.
+Use Node 24.21.0 (see `.nvmrc`) and npm:
 
 ```sh
 nvm install
@@ -30,55 +25,31 @@ npm ci
 npm run dev
 ```
 
-Open the URL printed by Astro (usually `http://localhost:4321`).
+Astro prints the local URL, normally `http://localhost:4321`.
 
-### Verification
-
-```sh
-npm run verify       # Biome, Astro type check, unit tests
-npm run verify:web   # core checks, static build, Playwright
-```
-
-First-time browser setup:
+## Verification and build
 
 ```sh
-npx playwright install chromium
-```
-
-### Build
-
-```sh
-npm run build
+npx playwright install chromium   # first-time browser setup
+npm run verify                   # Biome, Astro check, unit tests
+npm run verify:web               # core checks, production build, browser tests
+npm run build                    # static output in dist/
 npm run preview
 ```
 
-The static output is written to `dist/`. Deploy it to any static host. No server, database, environment variables or secrets are required.
+If the browser-test port is occupied, use `E2E_PORT=4322 npm run verify:web`. The test harness owns its preview process and does not reuse another server.
 
-## Adding a tool
-
-1. Keep domain logic in `src/lib/<tool>/` and UI in `src/components/<tool>/`.
-2. Add the route under `src/pages/`.
-3. Register the tool in `src/lib/tools.ts`.
-4. Add unit and Playwright coverage.
-5. Run `npm run verify:web`.
-
-See `.opencode/skills/tool-authoring/SKILL.md` for the full checklist and `docs/architecture.md` for boundaries.
-
-## Privacy
-
-beaver-tools has no backend, analytics or tracking. CV data is stored in the browser's `localStorage` and only leaves the device when you explicitly export a JSON file or print/save a PDF.
-
-Browser storage is not an encrypted vault or a backup: other users of the same browser profile can access it, and clearing site data removes it. Export a JSON backup before clearing browser data or changing devices. Keep personal CV exports outside this repository.
-
-The first browser visit requires downloading the site. Local-first does not yet mean an installable/offline-cached PWA; no service worker is configured.
-
-For PDF output, choose A4 and disable browser headers/footers in the print dialog. The document uses selectable text; automated ATS compatibility and identical pagination across browsers are not guaranteed.
+No backend, secrets or environment variables are required to install, build or test the site. No analytics, tracking or browser storage is used.
 
 ## Agent workflow
 
-The repository ships its agent harness: `AGENTS.md`, topic documentation under `docs/`, role agents under `.opencode/agents/`, skills under `.opencode/skills/`, and a worktree guard plugin. See `AGENTS.md` for required validation and delivery rules.
+The adapted AniOshi harness includes `AGENTS.md`, repository knowledge under `docs/`, specialized agents and skills under `.opencode/`, a worktree guard and canonical verification commands.
 
-See [Harness](docs/harness.md) for the AniOshi transfer scope, daily workflow and guard limitations.
+Read [Harness](docs/harness.md) for transfer scope and guard limitations, and [Architecture](docs/architecture.md) for project boundaries. Context7 is optional and reads its key from `CONTEXT7_API_KEY` in OpenCode's environment, not from committed credentials.
+
+## Future tools
+
+`src/lib/tools.ts` is intentionally empty. Register tools only when their implementation is requested. The `tool-authoring` skill describes the workflow without prescribing a particular first tool.
 
 ## License
 

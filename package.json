@@ -1,0 +1,37 @@
+{
+  "name": "beaver-tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^24.21.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "astro check",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "verify": "npm run check && npm run typecheck && npm test",
+    "verify:web": "npm run verify && npm run build && npm run test:e2e"
+  },
+  "dependencies": {
+    "@astrojs/react": "^7.1.1",
+    "astro": "^7.4.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@biomejs/biome": "^2.6.3",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "~6.0.3",
+    "yaml": "^2.9.1"
+  }
+}
